@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GreaterOutdoors</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>GreaterOutdoors</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <main>
+    <body>
+      <%= render :partial => 'layouts/nav' %>
+        <div class="footer_height">
+          <div class="container">
+            <div id="user_nav">
+  <!-- <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div> -->
+            <% if !flash.empty? %>
+              <div class="row">
+                <div class="col l6 offset-l3">
+                  <% flash.each do |type, message| %>
+                  <%= content_tag :div, message, class: "#{type} flash_message center-align" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <%= yield %>
+        </div>
+      </body>
+  </main>
 
-</body>
+  <footer class="page-footer" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Greater Outdoors</h5>
+          <p class="grey-text text-lighten-4">Get Out There</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </html>

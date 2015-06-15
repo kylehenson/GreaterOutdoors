@@ -1,0 +1,28 @@
+body {
+  padding-top: 4%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: image-url("mountain.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+  main {
+    flex: 1 0 auto;
+  }
+/*-------------------------------
+Home Page
+------------------------------- */
+
+
+
+/*-------------------------------
+Footer
+------------------------------- */
+
+#footer {
+  background-color: #101010;
+  opacity: .8;
+  z-index: 10000;
+  margin-top: 33%;
+}
