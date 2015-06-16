@@ -1,21 +1,15 @@
-<% if current_user %>
-  <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-  </ul>
-<% end %>
-
 <nav>
- <div class="nav-wrapper blue-grey darken-4 logo">
-    <%= link_to "Pick-A-Flick", root_path, class: "brand-logo" %>
-      <ul class="left">
-       <li>poopin</li> 
-     </ul>
+ <div class="nav-wrapper black logo">
+    <%= link_to "GreaterOutdoors", root_path, class: "brand-logo" %>
      <ul id="nav-mobile" class="right">
+       <li><%= link_to "Get Started!", new_playlist_path %></li>
       <% if current_user %>
-        <li><a class="dropdown-button" href="#" data-activates="dropdown1" ><%= image_tag current_user.image_url, class: "nav_image"%><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-        <li><%= link_to "My Watchlist", user_watchlists_path %></li>
-        <li><%= link_to "My Groups", user_groups_path %></li>
+        <li><%= link_to "Playlists" %></li>
+        <li><%= link_to "Trails" %></li>
+        <!-- <li><%= image_tag "#{current_user.image_url}", class:"nav_image dropdown-button" %></li> -->
         <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "Log In with Spotify", "/auth/spotify" %></li>
       <% end %>
     </ul>
   </div>
