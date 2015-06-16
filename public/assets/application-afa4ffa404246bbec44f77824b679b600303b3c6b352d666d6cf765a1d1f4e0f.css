@@ -1,6 +1,5 @@
 /* line 1, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
 body {
-  padding-top: 4%;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -8,7 +7,7 @@ body {
   background-size: cover;
 }
 
-/* line 10, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+/* line 9, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
 main {
   flex: 1 0 auto;
 }
@@ -16,15 +15,57 @@ main {
 /*-------------------------------
 Home Page
 ------------------------------- */
+/* line 16, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.home-text {
+  padding-top: 17% !important;
+  padding-left: 10% !important;
+}
+
+/*-------------------------------
+Navbar
+------------------------------- */
+/* line 24, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.logo {
+  padding-left: 1%;
+}
+
+/* line 28, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.left {
+  margin-left: 20% !important;
+}
+
 /*-------------------------------
 Footer
 ------------------------------- */
-/* line 23, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+/* line 46, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
 #footer {
   background-color: #101010;
   opacity: .8;
   z-index: 10000;
-  margin-top: 33%;
+  margin-top: 20%;
+}
+
+/*-------------------------------
+Create Playlist
+------------------------------- */
+/* line 56, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.time-input {
+  color: black !important;
+}
+
+/* line 60, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.map {
+  width: 400px;
+}
+
+/* line 64, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.center {
+  margin-left: 9%;
+}
+
+/* line 68, /Users/kylehenson/turing/module3/personal_project/greaterOutdoors/GreaterOutdoors/app/assets/stylesheets/custom.css.scss */
+.playlist-button {
+  margin-left: 45%;
 }
 /*
 

@@ -17716,6 +17716,10 @@ Picker.extend( 'pickadate', DatePicker )
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -17733,3 +17737,8 @@ Picker.extend( 'pickadate', DatePicker )
 
 
 
+
+$(document).ready(function() {
+    $('select').material_select();
+  });
+      
