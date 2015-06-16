@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_or_create_from_auth(auth)
     session[:user_id] = user.id
-    redirect_to :back
+    redirect_to root_path
+    # byebug
   end
 
   def destroy

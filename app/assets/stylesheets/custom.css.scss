@@ -1,5 +1,4 @@
 body {
-  padding-top: 4%;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -7,14 +6,38 @@ body {
   background-size: cover;
 }
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 /*-------------------------------
 Home Page
 ------------------------------- */
 
+.home-text {
+  padding-top: 17% !important;
+  padding-left: 10% !important;
+}
 
+/*-------------------------------
+Navbar
+------------------------------- */
+.logo {
+  padding-left: 1%;
+}
+
+.left {
+  margin-left: 20% !important;
+}
+
+// .nav-tabs {
+//   font-size: 1.4rem !important;
+// }
+//
+// .nav_image {
+//   margin-top: 5px;
+//   border-radius: 50%;
+//   border: 2px solid white;
+// }
 
 /*-------------------------------
 Footer
@@ -24,5 +47,24 @@ Footer
   background-color: #101010;
   opacity: .8;
   z-index: 10000;
-  margin-top: 33%;
+  margin-top: 20%;
+}
+
+/*-------------------------------
+Create Playlist
+------------------------------- */
+.time-input {
+  color: black !important;
+}
+
+.map {
+  width: 400px;
+}
+
+.center {
+    margin-left: 9%;
+}
+
+.playlist-button {
+    margin-left: 46%;
 }
