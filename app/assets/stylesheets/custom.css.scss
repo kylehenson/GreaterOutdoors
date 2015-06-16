@@ -18,6 +18,10 @@ Home Page
   padding-left: 10% !important;
 }
 
+.instructions {
+  opacity: .6;
+}
+
 /*-------------------------------
 Navbar
 ------------------------------- */
@@ -51,7 +55,7 @@ Footer
 }
 
 /*-------------------------------
-Create Playlist
+Create Playlist Page
 ------------------------------- */
 .time-input {
   color: black !important;
@@ -67,4 +71,12 @@ Create Playlist
 
 .playlist-button {
     margin-left: 45%;
+}
+
+/*-------------------------------
+User Playlist Page
+------------------------------- */
+
+.playlist {
+  opacity: .8;
 }
