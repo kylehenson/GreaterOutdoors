@@ -8,10 +8,9 @@
   </head>
 
   <main>
-    <body>
+    <body class="<%= yield (:body_class) %>">
       <%= render :partial => 'layouts/nav' %>
         <div class="footer_height">
-          <div class="container">
             <div id="user_nav">
             <% if !flash.empty? %>
               <div class="row">
@@ -24,7 +23,6 @@
             <% end %>
           </div>
           <%= yield %>
-        </div>
       </body>
   </main>
 

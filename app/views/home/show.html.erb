@@ -1,16 +1,22 @@
 <img class="responsive-img body">
 <div class="container home-text">
-  <h2 class="left-align white-text">Find a Trail,</h2>
-  <h2 class="center-align white-text">Get a Playlist,</h2>
-  <h2 class="right-align white-text">Stay Motivated</h2>
-</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="container">
-
-<ul class="collection">
-  <li class="collection-item center instructions"><h5>Pick a Trail from hundreds in Colorado</h5></li>
-  <li class="collection-item center instructions"><h5>Enter the Activity You will be doing</h5></li>
-  <li class="collection-item center instructions"><h5>Enjoy Your Customized Playlist</h5></li>
-</ul>
+  <h3 class="left-align white-text home-line1">Find a Trail</h3>
+  <h3 class="center-align white-text">Get a Playlist</h3>
+  <h3 class="right-align white-text">Stay Motivated</h3>
+  <div class="row home-login">
+    <% if !current_user %>
+      <%= link_to "Log In with Spotify", "/auth/spotify", class: "btn-large waves-effect waves-light light-green" %>
+    <% end %>
+  </div>
+</div>
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+  <ul class="collection">
+    <li class="collection-item center instructions"><h5>Pick a Trail from hundreds in Colorado</h5></li>
+    <li class="collection-item center instructions"><h5>Enter the Activity You will be doing</h5></li>
+    <li class="collection-item center instructions"><h5>Enjoy Your Customized Playlist</h5></li>
+  </ul>
 </div>
   <!-- <div class="row">
     <div class="col s12 m4">
