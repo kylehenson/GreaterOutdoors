@@ -1,7 +1,8 @@
+<% content_for :body_class, "not-home" %>
 <div class="row">
-  <h3 class="left-align white-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
+  <h3 class="left-align black-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
 </div><br><br><br><br>
-<!-- <div class="container"> -->
+<div class="container">
   <ul class="collapsible playlist col s3 " data-collapsible="accordion">
     <li>
       <div class="collapsible-header active"><i class="mdi-av-queue-music"></i>Dog Days Are Over - Floerence + The Machine</div>

@@ -9,6 +9,6 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-
+    @playlist = Playlist.create_playlist()
   end
 end

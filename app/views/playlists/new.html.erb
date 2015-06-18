@@ -1,8 +1,33 @@
+<% content_for :body_class, "not-home" %>
 <div class="row">
-  <h3 class="left-align white-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
+  <h4 class="left-align black-text col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
+</div>
+  </div><br><br>
+<div class="container">
+  <div class="row center-align">
+    <!-- <form class="form" action="/playlists" method="post"> -->
+
+    <div class="col l6">
+      <%= form_tag("/playlist", method: "post") do %>
+        <h5>Choose Your Activity:</h5>
+        <div class="input-field col s12 offset-s4 light-green"><%= select_tag "action", "<option>Run</option><option>Bike</option><option>Hike</option>".html_safe %></div>
+        <h5>Enter Time:</h5>
+        <input placeholder="minutes" id="time" type="text" class="validate input-field col col s12 offset-s4 light-green">
+        <%= submit_tag "Create Playlist", class: "btn light-green playlist-button" %>
+      <% end %>
+    </div>
+
+    <!-- </form> -->
+  </div><br><br><br><br>
+</div>
+  <div class="map"><%= image_tag "trail.gif" %></div>
+
+
+<!-- <div class="row">
+  <h3 class="left-align black-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
 </div><br><br><br><br>
 <div class="row">
-  <div class="input-field col s3 offset-s3 deep-orange lighten-2">
+  <div class="input-field col s3 offset-s1 light-green">
     <select>
       <option value="" disabled selected>Choose your Activity</option>
       <option value="1">Run</option>
@@ -10,14 +35,14 @@
       <option value="3">Hike</option>
     </select>
   </div>
-  <div class="input-field col s3 offset-s1 deep-orange lighten-2">
+  <div class="input-field col col s3 offset-s1 light-green">
     <input id="time" type="text" class="validate">
       <label class="time-input" for="time">Time in minutes</label>
+  </div>
+  <div class="col s4 create-button">
+    <%= link_to "Create Playlist", "auth/twitter", class: "btn-large waves-effect waves-light light-green playlist-button" %>
   </div>
 </div><br><br><br><br>
 <div class="row">
   <div class="center"><%= image_tag "trail.gif", class:"map" %></div>
-</div><br>
-<div class="row">
-  <%= link_to "Create Playlist", "auth/twitter", class: "btn-large waves-effect waves-light deep-orange lighten-1 playlist-button" %>
-</div>
+</div><br> -->
