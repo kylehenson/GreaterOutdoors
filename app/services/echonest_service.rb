@@ -1,31 +1,42 @@
-class EchonestService
-  attr_reader :connection
+module EchonestService
 
-  def initialize
-    @connection = Hurley::Client.new("http://developer.echonest.com/api/v4")
+  def self.fetch_songs(min_tempo, max_tempo, song_count)
+    response = fetch_songs!(min_tempo, max_tempo, song_count)
+    collect_songs(response['response']['songs'])
   end
 
-  def fetch_playlist(min_tempo, max_tempo, song_count)
-    parse(connection.get("song/search?api_key=#{ENV['ECHONEST_API_KEY']}&song_min_hotttnesss=.8&min_tempo=#{min_tempo}&max_tempo=#{max_tempo}&sort=tempo-asc&results=#{song_count}"))
+  def self.collect_songs(songs)
+    songs.collect do |song|
+      artist          = song['artist_name']
+      title           = song['title']
+      tempo           = song['audio_summary']['tempo']
+      duration        = song['audio_summary']['duration']
+      spotify_song_id = song['tracks'].first['foreign_id'].split(":").last
+      Track.new(artist: artist, title: title, tempo: tempo, duration: duration, spotify_song_id: spotify_song_id)
+    end
   end
 
-  # def create_playlist(params)
-  #   playlist_params = PlaylistParser.parse()
-  # end
+  def self.fetch_songs!(min_tempo, max_tempo, song_count)
+    connection = Faraday.new("http://developer.echonest.com")
+    connection.options.params_encoder = Faraday::FlatParamsEncoder
+    response = connection.get do |req|
+      req.url('/api/v4/song/search')
+      req.params['api_key'] = ENV['ECHONEST_API_KEY']
+      req.params['format'] = 'json'
+      req.params["song_min_hotttnesss"] = ".5"
+      req.params["min_tempo"] = "#{min_tempo}"
+      req.params["max_tempo"] = "#{max_tempo}"
+      req.params["sort"] = "tempo-asc"
+      req.params["results"] = "#{song_count}"
+      req.params['bucket'] = ['audio_summary', 'id:spotify', 'tracks']
+      req.params['limit'] = true
+    end
 
-
-#   def create_school(params)
-#   parse(connection.post("schools", params).body)
-# end
-
-
-  private
-
-  def parse(response)
     JSON.parse(response.body)
   end
-
 end
+
+__END__
 
 ##Examples
 
