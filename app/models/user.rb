@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :user_playlists
+  has_many :playlists, through: :user_playlists
 
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(
