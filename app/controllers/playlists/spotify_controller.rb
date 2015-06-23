@@ -10,7 +10,7 @@ class Playlists::SpotifyController < ApplicationController
       req.headers['Authorization'] = "Bearer #{session[:token]}"
       req.body = '{ "name": "New Playlist", "public": false }'
     end
-    if response.success?
+    if res.success?
       playlist_id = JSON.parse(res.body)['uri'].split(':').last
       connection = Faraday.new("https://api.spotify.com/v1/users/#{user_id}/playlists/#{playlist_id}/tracks")
       res = connection.post do |req|
@@ -19,7 +19,7 @@ class Playlists::SpotifyController < ApplicationController
       end
       # flash
       redirect_to playlists_path
-    elsif response.status == 401
+    elsif res.status == 401
       session.clear
       redirect_to login_path
     else
