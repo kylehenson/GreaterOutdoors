@@ -25,6 +25,7 @@ class Playlists::SpotifyController < ApplicationController
     else
       # flash
       redirect_to playlists_path
+    end
   end
 
 end
