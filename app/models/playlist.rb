@@ -5,15 +5,15 @@ class Playlist < ActiveRecord::Base
   has_many :user_playlists
   has_many :users, through: :user_playlists
 
-  def fetch_songs(activity, time)
+  def fetch_tracks(activity, time)
     tempo_range = set_tempo_params(activity)
-    song_count  = set_song_count_params(time)
+    track_count  = set_track_count_params(time)
     min_tempo   = tempo_range[:min_tempo]
     max_tempo   = tempo_range[:max_tempo]
-    songs       = EchonestService.fetch_songs(min_tempo, max_tempo, song_count)
+    tracks       = EchonestService.fetch_tracks(min_tempo, max_tempo, track_count)
 
-    songs.each do |song|
-      self.tracks << song
+    tracks.each do |track|
+      self.tracks << track rescue next
     end
     #playlist['response']['songs'].uniq! { |song| song['title'].downcase }
 
@@ -40,7 +40,7 @@ class Playlist < ActiveRecord::Base
     end
   end
 
-  def set_song_count_params(time)
+  def set_track_count_params(time)
     (time.to_i/3.5*3).to_i
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622041755) do
+ActiveRecord::Schema.define(version: 20150622215835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150622041755) do
     t.string "title"
     t.string "tempo"
     t.string "duration"
-    t.string "spotify_song_id"
+    t.string "spotify_track_id"
   end
 
   create_table "user_playlists", force: :cascade do |t|

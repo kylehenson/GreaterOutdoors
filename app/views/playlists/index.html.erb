@@ -3,24 +3,38 @@
   <h3 class="left-align black-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
 </div><br><br><br><br>
 <div class="container">
+  <% if current_user.playlists.empty? %>
+    <h3 class="center-align red-text">Click on Get Started! to make your first playlist!</h3>
+  <% else %>
   <ul class="collapsible playlist col s3 " data-collapsible="accordion">
+    <% current_user.playlists.each do |playlist| %>
     <li>
-      <div class="collapsible-header active"><i class="mdi-av-queue-music"></i>Dog Days Are Over - Floerence + The Machine</div>
-      <div class="collapsible-body white"><ol>
-                                            <li>Dog Days Are Over - Floerence + The Machine</li>
-                                            <li>First - Cold War Kids</li>
-                                            <li>Outside - Calvin Harris</li>
-                                            <a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a> Add Playlist to Spotify
-                                          </ol>
+      <a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a><%= link_to "Add Playlist to Spotify", spotify_playlist_path(id: playlist.id), method: :post %>
+      <div class="collapsible-header"><i class="mdi-av-queue-music"></i><%= playlist.tracks.first.artist %> - <%= playlist.tracks.first.title %></div>
+      <div class="collapsible-body white"><% playlist.tracks.each do |track| %> <ol>
+                                            <li><%= track.title %> - <%= track.artist %></li>
+        </ol>
+    <% end %>
       </div>
     </li>
-    <li>
-      <div class="collapsible-header"><i class="mdi-av-queue-music"></i>Helena Beat - Foster The People</div>
-      <div class="collapsible-body white"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="mdi-av-queue-music"></i>Diane Young - Vampire Weekend</div>
-      <div class="collapsible-body white"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
+    <% end %>
   </ul>
+  <% end %>
 </div>
+
+
+
+<!-- <li>
+  <div class="collapsible-header active"><i class="mdi-av-queue-music"></i>Dog Days Are Over - Florence + The Machine</div>
+  <div class="collapsible-body white"><ol>
+                                        <li>Dog Days Are Over - Florence + The Machine</li>
+                                        <li>First - Cold War Kids</li>
+                                        <li>Outside - Calvin Harris</li>
+                                        <a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a> Add Playlist to Spotify
+                                      </ol>
+  </div>
+</li>
+<li>
+  <div class="collapsible-header"><i class="mdi-av-queue-music"></i>Diane Young - Vampire Weekend</div>
+  <div class="collapsible-body white"><p>Lorem ipsum dolor sit amet.</p></div>
+</li> -->
