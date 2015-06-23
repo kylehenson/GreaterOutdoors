@@ -7,11 +7,11 @@ module EchonestService
 
   def self.collect_tracks(tracks)
     tracks.collect do |track|
-      artist          = track['artist_name']
-      title           = track['title']
-      tempo           = track['audio_summary']['tempo']
-      duration        = track['audio_summary']['duration']
-      spotify_track_id = track['tracks'].first['foreign_id'].split(":").last
+      artist           = track['artist_name']
+      title            = track['title']
+      tempo            = track['audio_summary']['tempo']
+      duration         = track['audio_summary']['duration']
+      spotify_track_id = track['tracks'].first['foreign_id']
       Track.new(artist: artist, title: title, tempo: tempo, duration: duration, spotify_track_id: spotify_track_id)
     end
   end

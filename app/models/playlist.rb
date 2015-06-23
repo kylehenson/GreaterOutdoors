@@ -15,20 +15,7 @@ class Playlist < ActiveRecord::Base
     tracks.each do |track|
       self.tracks << track rescue next
     end
-    #playlist['response']['songs'].uniq! { |song| song['title'].downcase }
-
-    # Create track objects from each song, validating uniqeness and saving things
-      # like tempo, play time, spotify_id, artist, title, image-url
-    # playlist['response']['songs'].each do |track|
-    #   params = PlaylistParser.parse(track)
-    #   Track.new(params)
-    # end
-    # Then create playlist by calling a random list of songs from personal database
-      # and checking that the tempo matches and length ~ time
-
-    # create_playlist
   end
-    # Playlist.create(params)
 
   def set_tempo_params(activity)
     if activity.include?("easy")

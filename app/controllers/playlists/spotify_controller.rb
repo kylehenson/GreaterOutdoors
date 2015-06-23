@@ -5,12 +5,26 @@ class Playlists::SpotifyController < ApplicationController
     current_user.playlists.find(params[:id])
     user_id = current_user.uid
     connection = Faraday.new("https://api.spotify.com/v1/users/#{user_id}/playlists")
-    jwt = Base64.encode64("#{ENV['SPOTIFY_CLIENT_ID']}:#{ENV['SPOTIFY_SECRET']}")
+    # jwt = Base64.encode64("#{ENV['SPOTIFY_CLIENT_ID']}:#{ENV['SPOTIFY_SECRET']}")
     res = connection.post do |req|
-      req.headers['Authorization'] = "Bearer #{jwt}"
+      req.headers['Authorization'] = "Bearer #{session[:token]}"
       req.body = '{ "name": "New Playlist", "public": false }'
     end
-    byebug
+    if response.success?
+      playlist_id = JSON.parse(res.body)['uri'].split(':').last
+      connection = Faraday.new("https://api.spotify.com/v1/users/#{user_id}/playlists/#{playlist_id}/tracks")
+      res = connection.post do |req|
+        req.headers['Authorization'] = "Bearer #{session[:token]}"
+        req.params['uris'] = Playlist.find(params[:id]).tracks.map(&:spotify_track_id).join(",")
+      end
+      # flash
+      redirect_to playlists_path
+    elsif response.status == 401
+      session.clear
+      redirect_to login_path
+    else
+      # flash
+      redirect_to playlists_path
   end
 
 end
