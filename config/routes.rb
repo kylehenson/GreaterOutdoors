@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   post '/playlists/:id/spotify', to: 'playlists/spotify#create', as: 'spotify_playlist'
 
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#create', as: 'login'
   get 'auth/failure', to: redirect('/')
   delete 'logout', to: 'sessions#destroy'
 end
