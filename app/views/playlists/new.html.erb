@@ -10,7 +10,7 @@
       <%= form_tag("/playlists", method: "post") do %>
         <h5>Choose Your Activity:</h5>
         <div class="input-field col s12 offset-s4 light-green"><%= select_tag "activity",
-          "<option>hiking - easy</option><option>hiking - regular</option><option>hiking - hike</option>
+          "<option>hiking - easy</option><option>hiking - moderate</option><option>hiking - hard</option>
            <option>running - easy</option><option>running - moderate</option><option>running - hard</option>
            <option>biking - easy</option><option>biking - moderate</option><option>biking - hard</option>".html_safe %></div>
         <h5>Enter Time:</h5>

@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
 
   def index
-
+    
   end
 
   def new
@@ -11,10 +11,12 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new
     current_user.playlists << @playlist
-    @playlist.fetch_songs(params['activity'], params['time'])
+    @playlist.fetch_tracks(params['activity'], params['time'])
 
     if @playlist.save
-      redirect_to playlists_path
+      @action = params['activity']
+      @time = params['time']
+      redirect_to playlists_path([@action, @time])
     else
       render :new
     end

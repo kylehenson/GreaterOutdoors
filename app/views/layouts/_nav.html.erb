@@ -4,7 +4,7 @@
      <ul id="nav-mobile" class="right">
       <% if current_user %>
        <li><%= link_to "Get Started!", new_playlist_path %></li>
-        <li><%= link_to "Playlists", playlists_path(current_user) %></li>
+        <li><%= link_to "Playlists", playlists_path %></li>
         <li><%= link_to "Trails" %></li>
         <!-- <li><%= image_tag "#{current_user.image_url}", class:"nav_image dropdown-button" %></li> -->
         <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
