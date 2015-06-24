@@ -5,6 +5,8 @@ class Playlist < ActiveRecord::Base
   has_many :user_playlists
   has_many :users, through: :user_playlists
 
+  validates :name, presence: :true
+
   def fetch_tracks(activity, time)
     tempo_range = set_tempo_params(activity)
     track_count  = set_track_count_params(time)

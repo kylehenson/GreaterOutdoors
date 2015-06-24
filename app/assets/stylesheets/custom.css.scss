@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   background: image-url("mountain.jpg") no-repeat center center fixed;
   background-size: cover;
+  font-family: 'Arya', sans-serif;
 }
 
 body.not-home {
@@ -13,6 +14,24 @@ body.not-home {
 main {
   flex: 1 0 auto;
 }
+
+.flash_message {
+  height: 35px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  margin-top: 1px;
+  margin-bottom: -7%;
+}
+
+.success {
+  background-color: #81c784;
+}
+
+.danger {
+  background-color: #b71c1c;
+  color: white;
+}
+
 /*-------------------------------
 Home Page
 ------------------------------- */
@@ -25,12 +44,16 @@ Home Page
 }
 
 .home-text {
-  padding-top: 17% !important;
+  padding-top: 5% !important;
   padding-left: 10% !important;
 }
 
+#instruction-list {
+  margin-top: 29%;
+}
+
 .instructions {
-  opacity: .6;
+  opacity: .7;
 }
 
 /*-------------------------------
@@ -38,35 +61,34 @@ Navbar
 ------------------------------- */
 .brand {
   font-size: 2.5rem !important;
+  font-family: 'Offside', cursive;
 }
 
 .logo {
   padding-left: 1%;
+  background-color: #252525;
 }
 
 .left {
   margin-left: 20% !important;
 }
 
-// .nav-tabs {
-//   font-size: 1.4rem !important;
-// }
-//
-// .nav_image {
-//   margin-top: 5px;
-//   border-radius: 50%;
-//   border: 2px solid white;
-// }
-
 /*-------------------------------
 Footer
 ------------------------------- */
 
 #footer {
-  background-color: #101010;
-  opacity: .8;
+  background-color: #252525;
+  // opacity: .8;
   z-index: 10000;
-  margin-top: 20%;
+  padding-top: 1%;
+  height: auto;
+  // margin-top: 13%;
+}
+
+.footer-text {
+  font-size: 2rem !important;
+  font-family: 'Offside', cursive;
 }
 
 /*-------------------------------
@@ -85,8 +107,8 @@ Create Playlist Page
   margin-left: 9%;
 }
 
-.playlist-button {
-  margin-left: 45%;
+.playlist-form {
+  padding-top: 4%;
 }
 
 .create-button {
@@ -98,5 +120,5 @@ User Playlist Page
 ------------------------------- */
 
 .playlist {
-  opacity: .8;
+  opacity: .9;
 }

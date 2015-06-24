@@ -1,4 +1,13 @@
 <img class="responsive-img body">
+<% if current_user %>
+<div class="row">
+  <h4 class="right-align white-text col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
+</div>
+<% else %>
+<div class="row">
+  <br><br><br>
+</div>
+<% end %>
 <div class="container home-text">
   <div class="container">
     <h3 class="left-align white-text home-line1">Find a Trail</h3>
@@ -10,9 +19,9 @@
       <% end %>
     </div>
   </div>
-  </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <div class="container">
-    <ul class="collection">
+</div>
+  <div class="container" id="instruction-list">
+    <ul class="collection" id="instructions">
       <li class="collection-item center instructions"><h5>Pick a Trail from hundreds in Colorado</h5></li>
       <li class="collection-item center instructions"><h5>Enter the Activity You will be doing</h5></li>
       <li class="collection-item center instructions"><h5>Enjoy Your Customized Playlist</h5></li>

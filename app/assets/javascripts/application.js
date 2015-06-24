@@ -18,3 +18,8 @@
 $(document).ready(function() {
     $('select').material_select();
   });
+
+var options = [
+  {selector: '#instructions', offset: 250, callback: 'Materialize.showStaggeredList("#instructions")' },
+  ];
+  Materialize.scrollFire(options);

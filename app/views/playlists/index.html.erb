@@ -1,40 +1,25 @@
 <% content_for :body_class, "not-home" %>
 <div class="row">
-  <h3 class="left-align black-text col s12">Welcome, <%= "#{current_user.username}" %>!</h3>
+  <h4 class="right-align orange-text text-accent-4 col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
 </div><br><br><br><br>
 <div class="container">
-  <% if current_user.playlists.empty? %>
-    <h3 class="center-align red-text">Click on Get Started! to make your first playlist!</h3>
+  <% if current_user.playlists.empty? %><br><br>
+  <h3 class="center-align orange-text text-accent-4">Click Get Started! to make a Playlist!</h3>
   <% else %>
-  <ul class="collapsible playlist col s3 " data-collapsible="accordion">
-    <% current_user.playlists.each do |playlist| %>
-    <li>
-      <a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a><%= link_to "Add Playlist to Spotify", spotify_playlist_path(id: playlist.id), method: :post %>
-      <div class="collapsible-header"><i class="mdi-av-queue-music"></i><%= playlist.tracks.first.artist %> - <%= playlist.tracks.first.title %></div>
-      <div class="collapsible-body white"><% playlist.tracks.each do |track| %> <ol>
-                                            <li><%= track.title %> - <%= track.artist %></li>
-        </ol>
-    <% end %>
-      </div>
-    </li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <h4 class="center-align orange-text text-accent-4 col s12">Your Playlists:</h4>
+  </div>
+    <ul class="collapsible playlist" data-collapsible="accordion">
+      <% current_user.playlists.each do |playlist| %>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><%= playlist.name %> - <%= playlist.created_at.strftime("%B %d, %Y") %></div>
+          <div class="collapsible-body white"><div><a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a><%= link_to "Add Playlist to Spotify", spotify_playlist_path(id: playlist.id), method: :post %> </div>
+          <% playlist.tracks.each do |track| %> <ol>
+            <li><%= track.artist %> - <%= track.title %></li></ol>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 </div>
-
-
-
-<!-- <li>
-  <div class="collapsible-header active"><i class="mdi-av-queue-music"></i>Dog Days Are Over - Florence + The Machine</div>
-  <div class="collapsible-body white"><ol>
-                                        <li>Dog Days Are Over - Florence + The Machine</li>
-                                        <li>First - Cold War Kids</li>
-                                        <li>Outside - Calvin Harris</li>
-                                        <a class="btn-floating btn-large waves-effect waves-light light-green"><i class="mdi-content-add"></i></a> Add Playlist to Spotify
-                                      </ol>
-  </div>
-</li>
-<li>
-  <div class="collapsible-header"><i class="mdi-av-queue-music"></i>Diane Young - Vampire Weekend</div>
-  <div class="collapsible-body white"><p>Lorem ipsum dolor sit amet.</p></div>
-</li> -->

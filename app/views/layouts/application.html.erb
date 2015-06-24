@@ -11,17 +11,15 @@
     <body class="<%= yield (:body_class) %>">
       <%= render :partial => 'layouts/nav' %>
         <div class="footer_height">
-            <div id="user_nav">
             <% if !flash.empty? %>
               <div class="row">
-                <div class="col l6 offset-l3">
+                <div class="col s4 offset-s4">
                   <% flash.each do |type, message| %>
                   <%= content_tag :div, message, class: "#{type} flash_message center-align" %>
                   <% end %>
                 </div>
               </div>
             <% end %>
-          </div>
           <%= yield %>
       </body>
   </main>
@@ -30,15 +28,11 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Greater Outdoors</h5>
-          <p class="grey-text text-lighten-4">Get Out There</p>
+          <h6 class="white-text brand">Greater Outdoors</h6>
+          <h6 class="grey-text text-lighten-4">Get Out There</h6>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          </ul>
+          <h6 class="white-text footer-text">Cowboy Kyle</h6>
         </div>
       </div>
     </div>
