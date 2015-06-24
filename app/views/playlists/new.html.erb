@@ -1,19 +1,19 @@
 <% content_for :body_class, "not-home" %>
 <div class="row">
-  <h4 class="right-align orange-text text-accent-4 col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
+  <h4 class="right-align indigo-text text-accent-2 col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
 </div>
   </div>
 <div class="container">
   <div class="row center-align playlist-form">
       <%= form_tag("/playlists", method: "post") do %>
-        <h4 class="orange-text text-accent-4">Name Playlist</h4>
+        <h4 class="indigo-text text-accent-2">Name Playlist</h4>
         <div class="input-field col s6 offset-s3 light-green"><input placeholder="name" <%= text_field_tag 'name' %></div><br><br><br><br>
-        <h4 class="orange-text text-accent-4">Choose Activity</h4>
+        <h4 class="indigo-text text-accent-2">Choose Activity</h4>
         <div class="input-field col s6 offset-s3 light-green"><%= select_tag "activity",
           "<option>hiking - easy</option><option>hiking - moderate</option><option>hiking - hard</option>
            <option>running - easy</option><option>running - moderate</option><option>running - hard</option>
            <option>biking - easy</option><option>biking - moderate</option><option>biking - hard</option>".html_safe %></div><br><br><br><br>
-        <h4 class="orange-text text-accent-4">Enter Time</h4>
+        <h4 class="indigo-text text-accent-2">Enter Time</h4>
         <div class="input-field col s6 offset-s3 light-green"><input placeholder="minutes"<%= text_field_tag 'time' %></div><br><br><br><br><br>
         <div class="col s4 offset-s4"><%= submit_tag "Create Playlist", class: "btn-large light-green" %> </div><br><br><br>
       <% end %>

@@ -49,11 +49,19 @@ Home Page
 }
 
 #instruction-list {
-  margin-top: 29%;
+  margin-top: 28%;
+  margin-bottom: 15%;
+}
+
+#instructions {
+  opacity: .8;
+  width: inherit;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .instructions {
-  opacity: .7;
+  opacity: .8;
 }
 
 /*-------------------------------
@@ -83,7 +91,6 @@ Footer
   z-index: 10000;
   padding-top: 1%;
   height: auto;
-  // margin-top: 13%;
 }
 
 .footer-text {
