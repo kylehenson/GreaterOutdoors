@@ -6,6 +6,7 @@ class Playlist < ActiveRecord::Base
   has_many :users, through: :user_playlists
 
   validates :name, presence: :true
+  validates :time, presence: :true, numericality: { greater_than: 3, less_than: 115 }
 
   def fetch_tracks(activity, time)
     tempo_range = set_tempo_params(activity)

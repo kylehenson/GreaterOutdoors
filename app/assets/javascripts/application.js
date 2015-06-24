@@ -20,6 +20,6 @@ $(document).ready(function() {
   });
 
 var options = [
-  {selector: '#instructions', offset: 250, callback: 'Materialize.showStaggeredList("#instructions")' },
+  {selector: '#instructions', offset: 200, callback: 'Materialize.showStaggeredList("#instructions")' },
   ];
   Materialize.scrollFire(options);
