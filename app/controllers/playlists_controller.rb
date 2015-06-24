@@ -10,7 +10,8 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist      = Playlist.new(playlist_params)
-    @playlist.fetch_tracks(params['activity'], params['time'])
+    @playlist.fetch_playlist(params['activity'], params['time'])
+    # @playlist.fetch_tracks(params['activity'], params['time'])
 
     if @playlist.save
       UserPlaylist.create(user_id: current_user.id, playlist_id: playlist.id)
