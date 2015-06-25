@@ -27,18 +27,18 @@ RSpec.describe Playlist, type: :model do
     expect(playlist).to be_valid
   end
 
-  xit 'returns a list of tracks for a playlist with easy activity and short time' do
-    playlist = Playlist.new(name: "Friday")
-    result = playlist.fetch_playlist("hike - easy", "10", nil)
-    expect(result.first.class).to eq Track
-  end
-
-  xit 'returns a list of tracks for a playlist with hard activity and long time' do
-    playlist = Playlist.new(name: "Saturday")
-    result = playlist.fetch_playlist("hike - hard", "115", nil)
-    expect(result.first.class).to eq Track
-  end
-
+  # it 'returns a list of tracks for a playlist with easy activity and short time' do
+  #   playlist = Playlist.new(name: "Friday")
+  #   result = playlist.fetch_playlist("hike - easy", "10", nil)
+  #   expect(result.first.class).to eq Track
+  # end
+  #
+  # it 'returns a list of tracks for a playlist with hard activity and long time' do
+  #   playlist = Playlist.new(name: "Saturday")
+  #   result = playlist.fetch_playlist("hike - hard", "115", nil)
+  #   expect(result.first.class).to eq Track
+  # end
+  
   it 'sets tempo params based on easy activity' do
     playlist = Playlist.new(name: "Slow")
     result = playlist.set_tempo_params('run - easy')
