@@ -15,6 +15,14 @@ main {
   flex: 1 0 auto;
 }
 
+#text-format {
+  background-color: #202020;
+  padding-bottom: .1%;
+  padding-top: .1%;
+  border-radius: 10px;
+  opacity: .9;
+}
+
 .flash_message {
   height: 35px;
   font-size: 1.5em;
@@ -35,6 +43,10 @@ main {
 /*-------------------------------
 Home Page
 ------------------------------- */
+.container.how-to {
+  width: 90%;
+}
+
 .home-line1 {
   padding-left: 4%;
 }
@@ -54,7 +66,7 @@ Home Page
 }
 
 #instructions {
-  opacity: .8;
+  opacity: .9;
   width: inherit;
   margin-left: auto;
   margin-right: auto;
@@ -101,6 +113,14 @@ Footer
 /*-------------------------------
 Create Playlist Page
 ------------------------------- */
+.container.playlist-create {
+  background-color: #202020;
+  padding-bottom: 2%;
+  border-radius: 31px;
+  opacity: .9;
+  width: 65%;
+}
+
 .time-input {
   color: black !important;
 }
@@ -127,8 +147,8 @@ User Playlist Page
 ------------------------------- */
 
 .container.playlist-index {
-  background-color: white;
+  background-color: #202020;
   padding-bottom: 2%;
   border-radius: 31px;
-  opacity: .8;
+  opacity: .9;
 }

@@ -35,7 +35,7 @@ class Playlist < ActiveRecord::Base
   end
 
   def set_track_count_params(time)
-    (time.to_i/3.5*3).to_i
+    (time.to_i/2.8).to_i
   end
 
 end
