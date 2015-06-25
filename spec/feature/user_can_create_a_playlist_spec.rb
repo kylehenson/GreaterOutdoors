@@ -13,13 +13,14 @@ feature 'new playlist' do
     expect(current_path).to eq new_playlist_path
 
     within ("#activity") do
-      select("running - easy")
+      select("run - easy")
     end
     fill_in "time", with: "60"
+    fill_in "name", with: "60 minutes"
     click_on "Create Playlist"
 
     expect(current_path).to eq playlists_path
-
+    expect(page).to have_content "60 minutes"
     expect(page).to have_content "Welcome, Jack Nicholson"
   end
 end

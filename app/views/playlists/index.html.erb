@@ -1,18 +1,18 @@
 <% content_for :body_class, "not-home" %>
 <div class="row">
-  <h4 class="right-align indigo-text text-accent-2 col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
-</div><br><br><br><br>
+  <h4 class="right-align light-green-text col s3 offset-s9" id="text-format">Welcome, <%= "#{current_user.username}" %>!</h4>
+</div><br><br>
 <div class="container playlist-index">
   <% if @playlists.empty? %><br><br>
   <div class="row">
-  <h3 class="center-align indigo-text text-accent-2">Click Get Started! to make a Playlist!</h3>
+  <h3 class="center-align light-green-text">Click Get Started! to make a Playlist!</h3>
   </div>
   <div class="row">
     <div class="center-align"><%= link_to "Get Started!", "/playlists/new", class: "btn-large waves-effect waves-light light-green" %> </div>
   </div>
   <% else %>
   <div class="row">
-    <h4 class="center-align indigo-text text-accent-2 col s12">Your Playlists:</h4>
+    <h4 class="center-align light-green-text col s12">Your Playlists:</h4>
   </div>
     <ul class="collapsible" data-collapsible="accordion">
       <% @playlists.each do |playlist| %>

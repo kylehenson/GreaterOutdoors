@@ -29,13 +29,13 @@ RSpec.describe Playlist, type: :model do
 
   xit 'returns a list of tracks for a playlist with easy activity and short time' do
     playlist = Playlist.new(name: "Friday")
-    result = playlist.fetch_tracks("hike - easy", "10")
+    result = playlist.fetch_playlist("hike - easy", "10", nil)
     expect(result.first.class).to eq Track
   end
 
   xit 'returns a list of tracks for a playlist with hard activity and long time' do
     playlist = Playlist.new(name: "Saturday")
-    result = playlist.fetch_tracks("hike - hard", "115")
+    result = playlist.fetch_playlist("hike - hard", "115", nil)
     expect(result.first.class).to eq Track
   end
 
@@ -60,13 +60,13 @@ RSpec.describe Playlist, type: :model do
   it 'sets track count params based on short time' do
     playlist = Playlist.new(name: "Short")
     result = playlist.set_track_count_params("15")
-    expect(result).to eq 12
+    expect(result).to eq 5
   end
 
   it 'sets track count params based on long time' do
     playlist = Playlist.new(name: "For Ever")
     result = playlist.set_track_count_params("180")
-    expect(result).to eq 154
+    expect(result).to eq 64
   end
 
 end
