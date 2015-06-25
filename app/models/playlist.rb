@@ -8,12 +8,16 @@ class Playlist < ActiveRecord::Base
   validates :name, presence: :true
   validates :time, presence: :true, numericality: { greater_than: 3, less_than: 115 }
 
-  def fetch_tracks(activity, time)
+  def fetch_playlist(activity, time, song_id)
     tempo_range = set_tempo_params(activity)
     track_count  = set_track_count_params(time)
     min_tempo   = tempo_range[:min_tempo]
     max_tempo   = tempo_range[:max_tempo]
-    tracks       = EchonestService.fetch_tracks(min_tempo, max_tempo, track_count)
+    if song_id
+      tracks = EchonestService.fetch_playlist(min_tempo, max_tempo, track_count, song_id)
+    else
+      tracks = EchonestService.fetch_tracks(min_tempo, max_tempo, track_count)
+    end
 
     tracks.each do |track|
       self.tracks << track rescue next

@@ -9,11 +9,13 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist      = Playlist.new(playlist_params)
-    @playlist.fetch_tracks(params['activity'], params['time'])
+    track_uri = SpotifyService.new.grab_track(session[:token])
+    @playlist = Playlist.new(playlist_params)
+
+    @playlist.fetch_playlist(params['activity'], params['time'], track_uri)
+    current_user.playlists << @playlist
 
     if @playlist.save
-      UserPlaylist.create(user_id: current_user.id, playlist_id: playlist.id)
       flash[:success] = "Playlist successfully created."
       redirect_to playlists_path
     else
@@ -25,6 +27,7 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :activity, :time)
+    # params.require(:playlist).permit(:name, :activity, :time)
+    params.permit(:name, :time)
   end
 end

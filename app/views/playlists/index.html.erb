@@ -2,7 +2,7 @@
 <div class="row">
   <h4 class="right-align indigo-text text-accent-2 col s12">Welcome, <%= "#{current_user.username}" %>!</h4>
 </div><br><br><br><br>
-<div class="container">
+<div class="container playlist-index">
   <% if @playlists.empty? %><br><br>
   <div class="row">
   <h3 class="center-align indigo-text text-accent-2">Click Get Started! to make a Playlist!</h3>
@@ -14,7 +14,7 @@
   <div class="row">
     <h4 class="center-align indigo-text text-accent-2 col s12">Your Playlists:</h4>
   </div>
-    <ul class="collapsible playlist" data-collapsible="accordion">
+    <ul class="collapsible" data-collapsible="accordion">
       <% @playlists.each do |playlist| %>
         <li>
           <div class="collapsible-header"><i class="material-icons">arrow_drop_down</i><%= playlist.name %> - <%= playlist.created_at.strftime("%B %d, %Y") %></div>
