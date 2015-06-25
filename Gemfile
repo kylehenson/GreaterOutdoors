@@ -47,3 +47,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+end
