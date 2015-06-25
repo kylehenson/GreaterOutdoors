@@ -24,6 +24,7 @@ gem 'omniauth-spotify'
 gem 'figaro'
 gem 'faraday'
 gem 'rails_12factor', group: :production
+gem 'skylight'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
