@@ -1,7 +1,7 @@
 <img class="responsive-img body">
 <% if current_user %>
 <div class="row">
-  <h4 class="right-align white-text col s3 offset-s8" id="home-text-format">Welcome, <%= "#{current_user.username}" %>!</h4>
+  <h4 class="right-align black-text col s3 offset-s8" id="home-text-format">Welcome, <%= "#{current_user.username}" %>!</h4>
 </div>
 <% else %>
 <div class="row">
@@ -13,9 +13,9 @@
     <h3 class="left-align white-text home-line1">Set a Goal</h3>
     <h3 class="center-align white-text">Get a Playlist</h3>
     <h3 class="right-align white-text">Stay Motivated</h3>
-    <div class="row home-login">
+    <div class="row home-login right-align">
       <% if !current_user %>
-        <%= link_to "Log In with Spotify", "/auth/spotify", class: "btn-large waves-effect waves-light light-green" %>
+        <%= link_to "Log In with Spotify", "/auth/spotify", class: "btn-large waves-effect waves-light light-green " %>
       <% end %>
     </div>
   </div>

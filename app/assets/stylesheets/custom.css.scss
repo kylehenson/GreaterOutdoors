@@ -16,7 +16,6 @@ main {
 }
 
 #text-format {
-  background-color: #202020;
   padding-bottom: .1%;
   padding-top: .1%;
   border-radius: 10px;
@@ -56,9 +55,9 @@ Home Page
   padding-left: 4%;
 }
 
-.home-login {
-  padding-left: 63%;
-}
+// .home-login {
+//   padding-left: 55%;
+// }
 
 .home-text {
   padding-top: 5% !important;
@@ -119,10 +118,9 @@ Footer
 Create Playlist Page
 ------------------------------- */
 .container.playlist-create {
-  background-color: #202020;
+  background-color: #252525;
   padding-bottom: 2%;
-  border-radius: 31px;
-  opacity: .9;
+  border-radius: 20px;
   width: 65%;
 }
 
@@ -152,8 +150,7 @@ User Playlist Page
 ------------------------------- */
 
 .container.playlist-index {
-  background-color: #202020;
+  background-color: #252525;
   padding-bottom: 2%;
-  border-radius: 31px;
-  opacity: .9;
+  border-radius: 20px;
 }
