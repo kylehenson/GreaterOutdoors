@@ -13,9 +13,9 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new(playlist_params)
 
     @playlist.fetch_playlist(params['activity'], params['time'], track_uri)
-    current_user.playlists << @playlist
 
     if @playlist.save
+      current_user.playlists << @playlist
       flash[:success] = "Playlist successfully created."
       redirect_to playlists_path
     else
